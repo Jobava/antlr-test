@@ -1,0 +1,6 @@
+*~
+*#
+dist/
+target/
+*.class
+*.jar
