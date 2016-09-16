@@ -14,6 +14,11 @@
       <version>4.12</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.antlr</groupId>
+      <artifactId>antlr4</artifactId>
+      <version>4.3</version>
+    </dependency>
   </dependencies>
   
   <!-- search for grammar files in {basedir}/src/main/antlr4 and any additional .tokens files in the directory ${basedir}/src/main/antlr4/imports. This can be configured to search other directories using the plugin configuration parameters as described in the antlr4 goal documentation. -->
@@ -29,8 +34,20 @@
             <goals>
               <goal>antlr4</goal>
             </goals>
+            <phase>generate-sources</phase>
+            <!-- <configuration>
+                <outputDirectory>src/main/java/com/jobava/antlr</outputDirectory>
+            </configuration> -->
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <showDeprecation>true</showDeprecation>
+        </configuration>
       </plugin>
     </plugins>
   </build>
